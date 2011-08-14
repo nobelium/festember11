@@ -227,13 +227,21 @@ $(document).ready(function(){
 	<div class="contentouter">
 		<div class="contentcontainer">
 			<div class="ccont">
-				<div class="content-top"></div>
+				<div style="margin: 20px;width: 100px;margin: 20px auto;">
+					<div class="loaderr" style="position: absolute;display: none;margin-left: 30px">
+						<img src="./images/loading_02.gif" />
+					</div>
+				</div>
 				<div id="content">
 					<?php 
 						$page = "home";
+						$subpage="";
 						if(isset($_GET["page"]))
 							$page = $_GET["page"];
-
+						if(isset($_GET["subpage"]))
+							$subpage = $_GET["subpage"];
+						die("pages found " . $page . $subpage);
+						
 						if(file_exists("./pages/" . $page . ".php")):
 							include("./pages/" . $page . ".php");
 						else:
@@ -245,7 +253,6 @@ $(document).ready(function(){
 						endif;
 					?>
 				</div>
-				<div class="content-bottom"></div>
 			</div>
 			<div class="rightcont">
 				<h3>Sponsors/Partners</h3>
